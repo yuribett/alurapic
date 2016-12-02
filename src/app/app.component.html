@@ -1,7 +1,13 @@
 <div class="jumbotron">
-    <h1 class="text-center">Alurapic</h1>
+    <h1 class="text-center">...</h1>
 </div>
 <div class="container">
-   <photo></photo>
-   <photo></photo>
+
+    <panel *ngFor="let photo of photos | async" title="{{photo.title}}">
+        <photo title="{{photo.title}}" url="{{photo.url}}"></photo>
+    </panel>
+
+<!--
+   <photo *ngFor="let photo of photos | async" url="{{photo.url}}" title="{{photo.title}}"></photo>
+-->
 </div>
