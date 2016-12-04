@@ -9,11 +9,18 @@ import { PanelModule } from './panel/panel.module';
 import 'rxjs/add/operator/map';
 
 import { AppComponent } from './app.component';
-import { Configs } from './configs'; 
+import { Configs } from './configs';
+import { RegisterComponent } from './register/register.component';
+import { GridComponent } from './grid/grid.component';
+//import { Config } from './config'; 
+
+import { routing } from './app.routes';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RegisterComponent,
+    GridComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +28,8 @@ import { Configs } from './configs';
     HttpModule,
     AngularFireModule.initializeApp(Configs.firebaseConfig),
     PhotoModule,
-    PanelModule
+    PanelModule,
+    routing
   ],
   providers: [],
   bootstrap: [ AppComponent ]  

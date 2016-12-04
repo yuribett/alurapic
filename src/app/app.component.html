@@ -1,13 +1,1 @@
-<div class="jumbotron">
-    <h1 class="text-center">...</h1>
-</div>
-<div class="container">
-
-    <panel *ngFor="let photo of photos | async" title="{{photo.title}}">
-        <photo title="{{photo.title}}" url="{{photo.url}}"></photo>
-    </panel>
-
-<!--
-   <photo *ngFor="let photo of photos | async" url="{{photo.url}}" title="{{photo.title}}"></photo>
--->
-</div>
+<router-outlet></router-outlet>
