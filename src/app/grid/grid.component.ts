@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { PhotoComponent } from '../photo/photo.component';
 
 @Component({
   selector: 'app-grid',
@@ -8,11 +9,14 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 })
 export class GridComponent {
 
-  photos: FirebaseListObservable<any[]>;
+  photos: PhotoComponent[] = [];
 
   constructor(af: AngularFire) {
-    this.photos = af.database.list('/photos');
     
+    af.database.list('/photos').subscribe(photos => {
+      this.photos = photos;
+    });
+
   }
 
 }
