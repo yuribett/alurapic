@@ -6,7 +6,7 @@ import { PhotoComponent } from './photo.component';
 })
 export class FilterByTitle implements PipeTransform {
 
-  transform(photos: PhotoComponent[], typing: string): any {
+  transform(photos: PhotoComponent[], typing: string): PhotoComponent[] {
     typing = typing.toLowerCase();
     return photos.filter(photo => photo.title.toLowerCase().includes(typing));
 
