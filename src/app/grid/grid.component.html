@@ -11,13 +11,14 @@
                             New photo
                         </a>
                     </span>
+                    <input class="form-control" placeholder="filter by photo title" #searchedText (keyup)="0">
                 </div> 
             </form>
         </div> <!-- fim col-md-12 -->
     </div> <!-- fim row -->
     <br>
     <div class="row">
-        <panel *ngFor="let photo of photos | async" title="{{photo.title}}" class="col-md-2">
+        <panel *ngFor="let photo of photos | async | filterByTitle:searchedText.value" title="{{photo.title | uppercase}}" class="col-md-2">
             <photo title="{{photo.title}}" url="{{photo.url}}"></photo>
         </panel>
     </div>

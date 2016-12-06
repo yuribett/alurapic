@@ -18,9 +18,15 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../node_modules/jquery-ui-dist/jquery-ui.min.css",
         "styles.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/jquery-migrate/dist/jquery-migrate.min.js",
+        "../node_modules/jquery-ui-dist/jquery-ui.min.js"
+      ],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
