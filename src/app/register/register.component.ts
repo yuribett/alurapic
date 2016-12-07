@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PhotoComponent } from '../photo/photo.component';
+import {AngularFire, FirebaseListObservable} from 'angularfire2';
 
 @Component({
   selector: 'app-register',
@@ -9,9 +10,11 @@ import { PhotoComponent } from '../photo/photo.component';
 export class RegisterComponent implements OnInit {
 
   photo: PhotoComponent = new PhotoComponent();
+  af:AngularFire;
 
-  constructor() { 
-
+  constructor(af: AngularFire) { 
+    this.af = af;
+    
   }
 
   ngOnInit() {
@@ -19,6 +22,7 @@ export class RegisterComponent implements OnInit {
 
   save(event) {
     event.preventDefault();
+    this.af.database.object("/photos/"+this.photo.id).set(this.photo);
     console.log(this.photo);
   }
 
