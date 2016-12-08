@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, Response } from '@angular/http';
 import { PhotoModule } from './photo/photo.module';
 import { AngularFireModule } from 'angularfire2';
@@ -25,6 +25,7 @@ import { routing } from './app.routes';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     AngularFireModule.initializeApp(Configs.firebaseConfig),
     PhotoModule,
