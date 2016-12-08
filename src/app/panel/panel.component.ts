@@ -12,6 +12,9 @@ export class PanelComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.title = this.title.length > 7
+      ? `${this.title.substr(0, 7)}...`
+      : this.title;
   }
 
 }
