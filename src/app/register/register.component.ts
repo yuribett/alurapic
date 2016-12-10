@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
         [Validators.required, Validators.minLength(4), Validators.pattern('[a-zA-Z0-9]*')]
       )],
       url: ['', Validators.required],
-      description: ['',]
+      description: ['']
     });
   }
 

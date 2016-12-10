@@ -21,4 +21,8 @@ export class PhotoService {
     return this.af.database.object(this.url + '/' + photo.id).set(photo);
   }
 
+  delete(photo: PhotoComponent): firebase.Promise<void>{
+    return this.af.database.object(this.url + '/' + photo.id).remove();
+  }
+
 }

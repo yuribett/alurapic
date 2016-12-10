@@ -10,13 +10,21 @@ import { PhotoService } from '../photo/photo.service';
 export class GridComponent {
 
   photos: PhotoComponent[] = [];
+  service: PhotoService;
 
   constructor(service: PhotoService) {
+    this.service = service;
+    this.list();
+  }
 
-    service.list().subscribe(photos => {
+  list(){
+    this.service.list().subscribe(photos => {
       this.photos = photos;
     });
+  }
 
+  delete(photo: PhotoComponent): void {
+    this.service.delete(photo);
   }
 
 }
