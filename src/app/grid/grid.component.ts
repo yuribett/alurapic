@@ -11,6 +11,7 @@ export class GridComponent {
 
   photos: PhotoComponent[] = [];
   service: PhotoService;
+  message: string = '';
 
   constructor(service: PhotoService) {
     this.service = service;
@@ -24,7 +25,12 @@ export class GridComponent {
   }
 
   delete(photo: PhotoComponent): void {
-    this.service.delete(photo);
+    this.service.delete(photo).then(() => {
+      this.message = `Photo '${photo.title}' removed`;
+    }).catch(e => {
+      this.message = `Error removing '${photo.title}'`;
+      console.log(`Error removing '${photo.title}'`, e);
+    });
   }
 
 }
