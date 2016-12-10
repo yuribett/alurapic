@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { PhotoComponent } from '../photo/photo.component';
+import { PhotoService } from '../photo/photo.service';
 
 @Component({
   selector: 'app-grid',
@@ -11,9 +11,9 @@ export class GridComponent {
 
   photos: PhotoComponent[] = [];
 
-  constructor(af: AngularFire) {
-    
-    af.database.list('/photos').subscribe(photos => {
+  constructor(service: PhotoService) {
+
+    service.list().subscribe(photos => {
       this.photos = photos;
     });
 
