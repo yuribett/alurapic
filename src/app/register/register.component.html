@@ -1,4 +1,6 @@
 <div class="container">
+    <h1 class="text-center">{{photo.title}}</h1>
+    <p *ngIf="message.length" class="alert alert-info">{{message}}</p>
 
     <form class="row" [formGroup]="registerForm" (submit)="save($event)">
         <div class="col-md-6">
@@ -22,9 +24,8 @@
                     </span>
 
                 </div>
-
-                
             </div>
+
             <div class="form-group">
                 <label>URL</label>
                 <input [(ngModel)]="photo.url" formControlName="url" name="url" class="form-control"  autocomplete="off">
@@ -32,6 +33,7 @@
                     URL is required
                 </span>
             </div>
+
             <div class="form-group">
                 <label>Description</label>
                 <textarea [(ngModel)]="photo.description" formControlName="description" name="description" class="form-control"  autocomplete="off">

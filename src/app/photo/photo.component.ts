@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { DataUtils } from '../utils/data-utils';
 
 @Component({
   selector: 'photo',
@@ -13,7 +14,7 @@ export class PhotoComponent implements OnInit {
   description: string;
 
   constructor() { 
-    this.id = new Date().getTime();
+    this.id = DataUtils.generateID();
   }
 
   ngOnInit() {

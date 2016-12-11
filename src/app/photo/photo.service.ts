@@ -18,11 +18,16 @@ export class PhotoService {
   }
 
   save(photo: PhotoComponent): firebase.Promise<void> {
+    console.log(photo);
     return this.af.database.object(this.url + '/' + photo.id).set(photo);
   }
 
   delete(photo: PhotoComponent): firebase.Promise<void>{
     return this.af.database.object(this.url + '/' + photo.id).remove();
+  }
+
+  findById(id: string): Observable<PhotoComponent>{
+    return this.af.database.object(this.url + '/' +id);
   }
 
 }

@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 const appRoutes: Routes = [
     {path: '', component: GridComponent},
     {path: 'register', component: RegisterComponent},
+    {path: 'register/:id', component: RegisterComponent},
     {path: '**', component: GridComponent}
 ];
 

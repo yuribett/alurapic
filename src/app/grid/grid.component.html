@@ -20,7 +20,9 @@
     <br>
     <div class="row">
         <panel *ngFor="let photo of photos | filterByTitle:searchedText.value" title="{{photo.title | uppercase}}" class="col-md-2">
-            <photo title="{{photo.title}}" url="{{photo.url}}"></photo>
+            <a [routerLink]="['/register', photo.id]">
+                <photo title="{{photo.title}}" url="{{photo.url}}"></photo>
+            </a>
             <button class="btn btn-danger btn-block" (click)="delete(photo)">Delete</button>
         </panel>
     </div>
