@@ -18,7 +18,6 @@ export class PhotoService {
   }
 
   save(photo: PhotoComponent): firebase.Promise<void> {
-    console.log(photo);
     return this.af.database.object(this.url + '/' + photo.id).set(photo);
   }
 

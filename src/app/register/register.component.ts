@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PhotoComponent } from '../photo/photo.component';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PhotoService } from '../photo/photo.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -15,16 +15,19 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   service: PhotoService;
   route: ActivatedRoute;
+  router: Router;
   message: string = '';
+  id: string;
 
-  constructor(fb: FormBuilder, service: PhotoService, route: ActivatedRoute) {
+  constructor(fb: FormBuilder, service: PhotoService, route: ActivatedRoute, router: Router) {
     this.service = service;
     this.route = route;
+    this.router = router;
 
     this.route.params.subscribe(params => {
-      let id = params['id'];
-      if(id) {
-        this.service.findById(id)
+      this.id = params['id'];
+      if(this.id) {
+        this.service.findById(this.id)
             .subscribe(
                 photo => {
                   this.photo = photo;
@@ -52,9 +55,16 @@ export class RegisterComponent implements OnInit {
     event.preventDefault();
     this.service.save(this.photo)
       .then(() => {
-        console.log('Photo sucessfully inserted!');
+        
+        this.photo = new PhotoComponent();
+        if(this.id) {
+          this.router.navigate(['']);
+        } else {
+          this.message = 'Photo sucessfully inserted!';
+        }
       })
       .catch(e => {
+        this.message = 'Error registring photo';
         console.log('Error registring photo', e);
       });
   }

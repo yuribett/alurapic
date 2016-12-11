@@ -11,7 +11,7 @@ export class PhotoComponent implements OnInit {
   id: number;
   @Input() title;
   @Input() url;
-  description: string;
+  description: string = '';
 
   constructor() { 
     this.id = DataUtils.generateID();
