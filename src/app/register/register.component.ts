@@ -3,6 +3,7 @@ import { PhotoComponent } from '../photo/photo.component';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PhotoService } from '../photo/photo.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SigninService } from '../signin/signin.service';
 
 @Component({
   selector: 'app-register',
@@ -19,7 +20,7 @@ export class RegisterComponent implements OnInit {
   message: string = '';
   id: string;
 
-  constructor(fb: FormBuilder, service: PhotoService, route: ActivatedRoute, router: Router) {
+  constructor(fb: FormBuilder, service: PhotoService, private ss: SigninService,  route: ActivatedRoute, router: Router) {
     this.service = service;
     this.route = route;
     this.router = router;

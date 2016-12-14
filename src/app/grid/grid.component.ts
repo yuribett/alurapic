@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PhotoComponent } from '../photo/photo.component';
 import { PhotoService } from '../photo/photo.service';
+import { SigninService } from '../signin/signin.service';
 
 @Component({
   selector: 'app-grid',
@@ -13,7 +14,7 @@ export class GridComponent {
   service: PhotoService;
   message: string = '';
 
-  constructor(service: PhotoService) {
+  constructor(service: PhotoService, private ss: SigninService) {
     this.service = service;
     this.list();
   }
